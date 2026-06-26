@@ -106,4 +106,44 @@
      -------------------------------------------------------------------- */
   var yearEl = document.querySelector('[data-year]');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ----------------------------------------------------------------------
+     6. Contact form — Web3Forms AJAX submission
+     -------------------------------------------------------------------- */
+  var inquiryForm = document.getElementById('inquiry-form');
+  if (inquiryForm) {
+    inquiryForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = inquiryForm.querySelector('[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(inquiryForm)
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            inquiryForm.closest('.card').innerHTML =
+              '<div style="text-align:center;padding:2.5rem 1rem;">' +
+                '<span class="contact-detail__icon" aria-hidden="true" style="width:64px;height:64px;margin:0 auto 1.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;">' +
+                  '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
+                '</span>' +
+                '<h3 style="margin-bottom:0.75rem;">Thank you. Your message is on its way.</h3>' +
+                '<p class="body" style="margin:0 auto;max-width:40ch;">We\'ve received your inquiry and will be in touch, confidentially and without obligation, typically within two business days.</p>' +
+              '</div>';
+          } else {
+            btn.disabled = false;
+            btn.textContent = 'Send inquiry';
+            alert('Something went wrong. Please try again or email us directly at CLau@bellpathgroup.com.');
+          }
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = 'Send inquiry';
+          alert('Something went wrong. Please try again or email us directly at CLau@bellpathgroup.com.');
+        });
+    });
+  }
 })();
