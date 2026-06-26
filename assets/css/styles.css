@@ -206,10 +206,6 @@ h3, .h3 {
 .brand__emblem img { width: 100%; height: 100%; object-fit: contain; display: block; }
 .brand:hover .brand__emblem { opacity: 0.82; }
 
-/* Ivory "coin" backing only where the background is dark, so the green "BP"
-   keeps full contrast. Fades in/out smoothly as the nav transitions. */
-.nav:not(.nav--solid) .brand__emblem,
-.footer__brand .brand__emblem { background: var(--bp-ivory); }
 .brand__word {
   font-size: 1.25rem; font-weight: 600; letter-spacing: -0.01em;
   color: var(--bp-primary);
@@ -217,6 +213,12 @@ h3, .h3 {
   white-space: nowrap;
 }
 .brand__word .sub { font-weight: 400; color: rgba(34, 108, 85, 0.65); }
+
+/* Logo: white on dark hero and footer, natural green when nav is solid */
+.brand__emblem img.logo-white { display: none; }
+.nav:not(.nav--solid) .brand__emblem img.logo-green { filter: brightness(0) invert(1); }
+.nav--solid .brand__emblem img.logo-green { filter: none; }
+.footer__brand .brand__emblem img.logo-green { filter: brightness(0) invert(1); }
 
 /* Over dark hero: invert brand wordmark */
 .nav:not(.nav--solid) .brand__word { color: #fff; }
@@ -621,8 +623,8 @@ h3, .h3 {
   background-size: cover;
 }
 .page-hero .eyebrow { color: var(--bp-gold); margin-bottom: var(--space-4); }
-.page-hero h1 { color: #fff; max-width: 16ch; }
-.page-hero p { color: rgba(255,255,255,0.85); margin-top: var(--space-4); max-width: 56ch; font-size: 1.0625rem; }
+.page-hero h1 { color: #fff; max-width: 28ch; }
+.page-hero p { color: rgba(255,255,255,0.85); margin-top: var(--space-4); max-width: 60ch; font-size: 1.0625rem; }
 
 /* Story prose */
 .prose-block { max-width: var(--maxw-prose); }
