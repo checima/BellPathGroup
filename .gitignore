@@ -1,0 +1,18 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.idea/
+.vscode/
+
+# Netlify local state
+.netlify/
+
+# Source/reference material (not part of the deployed site)
+# Comment these out if you want to keep them in the repo.
+*.md
+!README.md
+bell_path_group_style_guide.html
+Bell_Path_Group_Overview.pdf
+.claude/
