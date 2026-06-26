@@ -131,7 +131,7 @@
                   '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>' +
                 '</span>' +
                 '<h3 style="margin-bottom:0.75rem;">Thank you. Your message is on its way.</h3>' +
-                '<p class="body" style="margin:0 auto;max-width:40ch;">We\'ve received your inquiry and will be in touch, confidentially and without obligation, typically within two business days.</p>' +
+                '<p class="body" style="margin:0 auto;max-width:40ch;">We\'ve received your inquiry, thank you for your interest.</p>' +
               '</div>';
           } else {
             btn.disabled = false;
