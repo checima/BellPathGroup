@@ -21,7 +21,7 @@
     if (!nav) return;
     // Become "solid" once the user scrolls past most of the hero (or 80px on
     // pages without a full hero, e.g. the About page).
-    var threshold = hero ? hero.offsetHeight - 120 : 40;
+    var threshold = hero ? 10 : 10;
     if (window.scrollY > threshold) {
       nav.classList.add('nav--solid');
     } else {
