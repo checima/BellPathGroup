@@ -118,15 +118,9 @@
       btn.disabled = true;
       btn.textContent = 'Sending…';
 
-      // Collect the fields into a plain object and post them as JSON to our
-      // serverless relay, which attaches the Web3Forms key server-side.
-      var payload = {};
-      new FormData(inquiryForm).forEach(function (value, key) { payload[key] = value; });
-
-      fetch(inquiryForm.getAttribute('action'), {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
+        body: new FormData(inquiryForm)
       })
         .then(function (res) { return res.json(); })
         .then(function (data) {

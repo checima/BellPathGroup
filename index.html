@@ -334,7 +334,8 @@
 
           <!-- Right: contact form (Web3Forms) -->
           <div class="card contact-card reveal" data-delay="1">
-            <form id="inquiry-form" method="POST" action="/.netlify/functions/contact">
+            <form id="inquiry-form" method="POST" action="https://api.web3forms.com/submit">
+              <input type="hidden" name="access_key" value="f7a4c2f8-118b-4cdc-b929-c0ab3ffe552f" />
               <input type="hidden" name="subject" value="New Inquiry — Bell Path Group" />
               <input type="hidden" name="from_name" value="Bell Path Group Website" />
               <input type="checkbox" name="botcheck" style="display:none" />

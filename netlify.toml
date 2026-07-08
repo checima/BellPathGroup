@@ -7,8 +7,6 @@
   # Nothing to compile — serve the repository as-is.
   publish = "."
   command = ""
-  # Serverless functions (contact-form relay) live here.
-  functions = "netlify/functions"
 
 # Pretty URLs: serve /about (Netlify resolves /about/ -> about/index.html).
 [build.processing.html]
