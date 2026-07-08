@@ -118,9 +118,15 @@
       btn.disabled = true;
       btn.textContent = 'Sending…';
 
-      fetch('https://api.web3forms.com/submit', {
+      // Collect the fields into a plain object and post them as JSON to our
+      // serverless relay, which attaches the Web3Forms key server-side.
+      var payload = {};
+      new FormData(inquiryForm).forEach(function (value, key) { payload[key] = value; });
+
+      fetch(inquiryForm.getAttribute('action'), {
         method: 'POST',
-        body: new FormData(inquiryForm)
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
       })
         .then(function (res) { return res.json(); })
         .then(function (data) {
